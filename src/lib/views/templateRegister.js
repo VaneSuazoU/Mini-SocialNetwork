@@ -1,0 +1,24 @@
+export const registerPage = () => {
+    const divRegister = document.createElement('div');
+    const viewRegister =`
+    <header>
+    <h1>MichiTips</h1>
+    <h4>LA COMUNIDAD INDOOR</h4>
+    </header>
+    <main>
+    <input type="email" id="emailRegister" placeholder="Correo electrónico">
+    <input type="text" id="userName" placeholder="Nombre">
+    <input type="password" id="password" placeholder="Contraseña">
+    <h4>Al registrarte aceptas nuestras politicas y condiciones</h4>
+    <button class="submit" id="userRegister">Registrarse</button>
+    <h5>¿Tienes tu cuenta?</h5>
+    <a href=/#>Volver al inicio</a>
+    </main>
+    <footer>
+    <h5>Información | Ayuda | Privacidad | Condiciones</h5>
+    <h6><L> 2021 MichiTips</h6>
+    </footer>
+    `
+    divRegister.innerHTML = viewRegister;
+    return divRegister;
+}
