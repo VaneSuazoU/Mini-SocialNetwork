@@ -1,6 +1,6 @@
 export const homePage    = () => {
     const divHome = document.createElement('div');
-    const viewHome = `
+    const homeView = `
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -10,8 +10,7 @@ export const homePage    = () => {
     <footer>
     <button class="submit" id="newPost">Crear Publicación</button>
     </footer>
-    
-    `
-    divHome.innerHTML = viewHome;
+        `
+    divHome.innerHTML = homeView;
     return divHome;
 }

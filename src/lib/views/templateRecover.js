@@ -1,6 +1,6 @@
 export const recoverPage = () => {
     const divRecover = document.createElement('div');
-    const viewRecover = ` 
+    const recoverView = ` 
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -17,6 +17,6 @@ export const recoverPage = () => {
     <h6><L> 2021 MichiTips</h6>
     </footer>
     `
-    divRecover.innerHTML = viewRecover;
+    divRecover.innerHTML = recoverView;
     return divRecover;
 }

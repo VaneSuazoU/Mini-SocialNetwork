@@ -1,4 +1,9 @@
 body {
-    background-image: url(./images/fe42079e197584ca67ac99eacd098954.jpg);
+    background-image: url(./images/wallpaper.jpg);
     background-size: cover;
+}
+.submit {
+    background: #E2EAF9;
+    border: 3px solid #bbcdef;
+    box-sizing: border-box;
 }

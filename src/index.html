@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,28 @@
   <link rel="stylesheet" href="style.css">
   <title>SocialNetwork</title>
 </head>
+
 <body>
-  <section id="root">
-    
-  </section> 
- 
-  
+  <section id="root"></section>
+
   <script type="module" src="main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
+
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD3CZtvYibAN2uGT2UY4uuOclt60g_BJJU",
+      authDomain: "michitips-761e1.firebaseapp.com",
+      projectId: "michitips-761e1",
+      storageBucket: "michitips-761e1.appspot.com",
+      messagingSenderId: "293794571862",
+      appId: "1:293794571862:web:d364a33b3e30a9bddf3df7"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
+
 </html>

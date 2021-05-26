@@ -1,6 +1,6 @@
 export const registerPage = () => {
     const divRegister = document.createElement('div');
-    const viewRegister =`
+    const registerView =`
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -19,6 +19,6 @@ export const registerPage = () => {
     <h6><L> 2021 MichiTips</h6>
     </footer>
     `
-    divRegister.innerHTML = viewRegister;
+    divRegister.innerHTML = registerView;
     return divRegister;
 }

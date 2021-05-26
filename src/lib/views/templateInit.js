@@ -1,5 +1,8 @@
+import {login} from '../firebase/auth.js';
+
 export const initPage = () => {
-    const firstView = `
+    const divInit = document.createElement('div');
+    const initView = `
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -18,5 +21,16 @@ export const initPage = () => {
     <h6><L> 2021 MichiTips</h6>
     </footer>
     `
-    return firstView
+    divInit.innerHTML = initView;
+    
+    /*const loginGoogle =  divInit.querySelector('#googleStart');
+    loginGoogle.addEventListener('click', () => {       
+        login();
+    });*/
+
+    const btn = divInit.querySelector('#googleStart');
+    btn.addEventListener('click', () =>{
+       login()
+    })
+    return initView
 }
