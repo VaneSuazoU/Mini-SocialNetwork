@@ -4,9 +4,11 @@ import { myFunction } from './lib/index.js';
 import {initPage} from './lib/views/templateInit.js';
 import {registerPage } from './lib/views/templateRegister.js';
 import {recoverPage } from './lib/views/templateRecover.js';
+import { homePage } from './lib/views/templateHome.js'
 
 myFunction();
 
 document.getElementById('root').innerHTML = initPage()
 document.getElementById('root').appendChild(registerPage());
 document.getElementById('root').appendChild(recoverPage());
+document.getElementById('root').appendChild(homePage())
