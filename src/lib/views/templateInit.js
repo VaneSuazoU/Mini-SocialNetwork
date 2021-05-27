@@ -2,6 +2,7 @@ import {login} from '../firebase/auth.js';
 
 export const initPage = () => {
     const divInit = document.createElement('div');
+    divInit.className = ('container')
     const initView = `
     <header>
     <h1>MichiTips</h1>
@@ -11,7 +12,7 @@ export const initPage = () => {
     <input type="email" id="email" placeholder="Correo electrónico">
     <input type="password" id="password" placeholder="Contraseña">
     <button class="submit" id="start">Iniciar sesión</button>
-    <button class="submit" id="googleStart">Iniciar sesión con Google</button>
+    <button class="submit" id="googleLogin">Iniciar sesión con Google</button>
     <a href=#/passwordRecover>¿Olvidó su contraseña?</a>
     <h4>¿No tienes cuenta?</h4>
     <a href=#/register>Regístrate</a>
@@ -22,15 +23,18 @@ export const initPage = () => {
     </footer>
     `
     divInit.innerHTML = initView;
-    
-    /*const loginGoogle =  divInit.querySelector('#googleStart');
+
+    const loginGoogle =  divInit.querySelector('#googleLogin');
     loginGoogle.addEventListener('click', () => {       
         login();
-    });*/
+    });
 
-    const btn = divInit.querySelector('#googleStart');
-    btn.addEventListener('click', () =>{
-       login()
-    })
-    return initView
+   /* const googlebtn = divInit.querySelector('#googleLogin');
+    console.log(googlebtn)
+    googlebtn.addEventListener('click', () =>{
+        //console.log("Hola")
+       login();
+    })*/
+
+    return initView;
 }

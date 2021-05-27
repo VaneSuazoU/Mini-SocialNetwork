@@ -2,6 +2,19 @@ body {
     background-image: url(./images/wallpaper.jpg);
     background-size: cover;
 }
+#root {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    text-align: center;
+}
+header, main, footer {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
 .submit {
     background: #E2EAF9;
     border: 3px solid #bbcdef;

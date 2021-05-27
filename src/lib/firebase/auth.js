@@ -1,7 +1,5 @@
-
 export const login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-
     firebase.auth()
     .signInWithPopup(provider)
     .then((result) => {
@@ -25,7 +23,28 @@ export const login = () => {
         // ...
         console.log('error', error)
     });
+};
+
+export const createAccount = () => {
+    const username = document.getElementById('userName').value;
+    const email = document.getElementById('emailRegister').value;
+    const password = document.getElementById('password').value;
     
-}
-
-
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+        const database = firebase.firestore();
+        return database.collection('user').doc(user.uid).set({
+            nombre: username,
+            email,
+        });
+        
+        // ...
+    })
+    .then(() => {
+        emailVerification();
+        /* const user = userCredential.user; */
+    })
+    .catch((error) => {
+        document.querySelector('.result').innerHTML = error.message;
+    });
+};

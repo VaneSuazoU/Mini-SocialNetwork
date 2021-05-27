@@ -1,3 +1,5 @@
+import {createAccount} from '../firebase/auth.js';
+
 export const registerPage = () => {
     const divRegister = document.createElement('div');
     const registerView =`
@@ -20,5 +22,11 @@ export const registerPage = () => {
     </footer>
     `
     divRegister.innerHTML = registerView;
+
+    const createUser = divRegister.querySelector('#userRegister');
+    createUser.addEventListener('click', () => {
+        createAccount();
+    });
+
     return divRegister;
 }
