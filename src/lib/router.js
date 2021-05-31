@@ -10,21 +10,17 @@ export const changeRoute = (hash) => showTemplate(hash)
 
 const showTemplate = (hash) => {
     const containerRoot = document.getElementById('root');
-    containerRoot.innerHTML = ' ';
+    containerRoot.innerHTML = '';
     switch (hash){
-        case '#/passwordRecover' :
+        case '#/passwordRecover':
         containerRoot.appendChild(recoverPage());
         break;
-        case '#/register' :
+        case '#/register':
         containerRoot.appendChild(registerPage());
         break;
-        case '' :
-        containerRoot.appendChild(initPage());
-        break;
-        case '#' :
-        containerRoot.appendChild(initPage());
-        break;
-        case '#/' :
+        case '':
+        case '#':
+        case '#/':
         containerRoot.appendChild(initPage());
         break;
         default:

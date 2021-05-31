@@ -13,6 +13,7 @@ export const registerPage = () => {
     <input type="password" id="password" placeholder="Contraseña">
     <h4>Al registrarte aceptas nuestras politicas y condiciones</h4>
     <button class="submit" id="userRegister">Registrarse</button>
+    <p class="result"></p>
     <h5>¿Tienes tu cuenta?</h5>
     <a href=/#>Volver al inicio</a>
     </main>
