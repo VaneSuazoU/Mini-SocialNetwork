@@ -19,4 +19,6 @@ header, main, footer {
     background: #E2EAF9;
     border: 3px solid #bbcdef;
     box-sizing: border-box;
+    color: black;
+    text-decoration: inherit;
 }

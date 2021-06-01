@@ -1,8 +1,8 @@
-import {passRecover} from '../firebase/auth.js';
+import { passRecover } from '../firebase/auth.js';
 
 export const recoverPage = () => {
-    const divRecover = document.createElement('div');
-    const recoverView = ` 
+  const divRecover = document.createElement('div');
+  const recoverView = ` 
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -19,16 +19,14 @@ export const recoverPage = () => {
     <h5>Información | Ayuda | Privacidad | Condiciones</h5>
     <h6><L> 2021 MichiTips</h6>
     </footer>
-    `
- 
-    divRecover.innerHTML = recoverView;
+    `;
 
-    const recoverPassword = divRecover.querySelector('#sendLink');
-    recoverPassword.addEventListener('click', () => {
-        passRecover();
-    });
+  divRecover.innerHTML = recoverView;
 
- 
+  const recoverPassword = divRecover.querySelector('#sendLink');
+  recoverPassword.addEventListener('click', () => {
+    passRecover();
+  });
 
-    return divRecover;
-}
+  return divRecover;
+};

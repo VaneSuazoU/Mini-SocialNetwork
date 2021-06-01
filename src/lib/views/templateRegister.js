@@ -1,8 +1,8 @@
-import {createAccount} from '../firebase/auth.js';
+import { createAccount } from '../firebase/auth.js';
 
 export const registerPage = () => {
-    const divRegister = document.createElement('div');
-    const registerView =`
+  const divRegister = document.createElement('div');
+  const registerView = `
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -21,13 +21,13 @@ export const registerPage = () => {
     <h5>Información | Ayuda | Privacidad | Condiciones</h5>
     <h6><L> 2021 MichiTips</h6>
     </footer>
-    `
-    divRegister.innerHTML = registerView;
+    `;
+  divRegister.innerHTML = registerView;
 
-    const createUser = divRegister.querySelector('#userRegister');
-    createUser.addEventListener('click', () => {
-        createAccount();
-    });
+  const createUser = divRegister.querySelector('#userRegister');
+  createUser.addEventListener('click', () => {
+    createAccount();
+  });
 
-    return divRegister;
-}
+  return divRegister;
+};

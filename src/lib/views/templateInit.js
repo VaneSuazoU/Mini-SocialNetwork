@@ -1,10 +1,9 @@
-import {login} from '../firebase/auth.js';
-import { singIn } from '../firebase/auth.js';
+import { googleLogin, singIn } from '../firebase/auth.js';
 
 export const initPage = () => {
-    const divInit = document.createElement('div');
-    //divInit.className = ('container')
-    const initView = `
+  const divInit = document.createElement('div');
+  // divInit.className = ('container')
+  const initView = `
     <header>
     <h1>MichiTips</h1>
     <h4>LA COMUNIDAD INDOOR</h4>
@@ -15,7 +14,6 @@ export const initPage = () => {
     <button class="submit" id="start">Iniciar sesión</button>
     <button class="submit" id="googleLogin">Iniciar sesión con Google</button>
     <a href=#/passwordRecover>¿Olvidó su contraseña?</a>
-    <p class="result"></p>
     <h4>¿No tienes cuenta?</h4>
     <a href=#/register>Regístrate</a>
     </main>
@@ -23,18 +21,18 @@ export const initPage = () => {
     <h5>Información | Ayuda | Privacidad | Condiciones</h5>
     <h6><L> 2021 MichiTips</h6>
     </footer>
-    `
-    divInit.innerHTML = initView;
+    `;
+  divInit.innerHTML = initView;
 
-    const loginGoogle =  divInit.querySelector('#googleLogin');
-    loginGoogle.addEventListener('click', () => {       
-        login();
-    });
+  const loginGoogle = divInit.querySelector('#googleLogin');
+  loginGoogle.addEventListener('click', () => {
+    googleLogin();
+  });
 
-    const regularLogin = divInit.querySelector('#start');
-    regularLogin.addEventListener('click', () => {
-        singIn();
-    });
+  const regularLogin = divInit.querySelector('#start');
+  regularLogin.addEventListener('click', () => {
+    singIn();
+  });
 
-    return divInit;
-}
+  return divInit;
+};
