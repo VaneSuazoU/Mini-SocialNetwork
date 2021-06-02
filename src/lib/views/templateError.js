@@ -1,8 +1,12 @@
 export const errorPage = () => {
   const divError = document.createElement('div');
   const viewError = `
-    <img src="./images/error.png">
+    <h1>ERROR 404</h1>
+    <img src="./images/tryagaincat.gif">
+    <footer>
     <a href=/#>Volver al inicio</a>
+    </footer>
+    
     `;
 
   divError.innerHTML = viewError;

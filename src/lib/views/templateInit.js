@@ -13,6 +13,8 @@ export const initPage = () => {
     <input type="password" id="password" placeholder="Contraseña">
     <button class="submit" id="start">Iniciar sesión</button>
     <button class="submit" id="googleLogin">Iniciar sesión con Google</button>
+    <h4 class="result"></h4>
+    <div id="tryAgain"></div>
     <a href=#/passwordRecover>¿Olvidó su contraseña?</a>
     <h4>¿No tienes cuenta?</h4>
     <a href=#/register>Regístrate</a>

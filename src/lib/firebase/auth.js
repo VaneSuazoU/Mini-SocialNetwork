@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export const googleLogin = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -5,8 +6,8 @@ export const googleLogin = () => {
     .signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
-      window.location.hash = '#/home';
       const database = firebase.firestore();
+      window.location.hash = '#/home';
       return database.collection('user').doc(user.uid).set({
         nombre: user.displayName,
         email: user.email,
@@ -24,7 +25,9 @@ export const singIn = () => {
       window.location.hash = '#/home';
     })
     .catch(() => {
-      window.location.hash = '#/error';
+      document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+      const imgTryagain = document.querySelector('#tryAgain');
+      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
@@ -37,7 +40,7 @@ export const createAccount = () => {
     .then((userCredential) => {
       const user = userCredential.user;
       const database = firebase.firestore();
-      document.querySelector('.result').innerHTML = 'Tu cuenta fue creada';
+      document.querySelector('.result').innerHTML = 'Tu cuenta fue creada, vuelve al inicio para ingresar';
       return database.collection('user').doc(user.uid).set({
         name: username,
         email,
@@ -45,6 +48,8 @@ export const createAccount = () => {
     })
     .catch(() => {
       document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+      const imgTryagain = document.querySelector('#tryAgain');
+      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
@@ -56,5 +61,26 @@ export const passRecover = () => {
     document.querySelector('.result').innerHTML = 'Enviamos a tu correo el enlace para cambiar tu contraseña';
   }).catch(() => {
     document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+    const imgTryagain = document.querySelector('#tryAgain');
+    imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
   });
 };
+
+export const signOff = () => {
+  firebase.auth().signOut().then(() => {
+    swal('Hasta pronto!!');
+    window.location.hash = '#/';
+  }).catch(() => {
+    document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+    const imgTryagain = document.querySelector('#tryAgain');
+    imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
+  });
+};
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    window.location.hash = '#/home';
+  } else {
+    window.location.hash = '#/error';
+  }
+});

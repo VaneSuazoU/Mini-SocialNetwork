@@ -1,3 +1,5 @@
+import { signOff } from '../firebase/auth.js';
+
 export const postPage = () => {
   const divPost = document.createElement('div');
   const newpostView = `
@@ -21,5 +23,11 @@ export const postPage = () => {
     </footer>
     `;
   divPost.innerHTML = newpostView;
+
+  const logOut = divPost.querySelector('#logOut');
+  logOut.addEventListener('click', () => {
+    signOff();
+  });
+
   return divPost;
 };
