@@ -10,10 +10,6 @@ export const postPage = () => {
     </header>
     <main>
     <h1>Crea tu publicación</h1>
-    <input type="file" id="newPost" class="newPost" value="">
-    <div id="postcontainer">
-    <img src="" class="imgPost" id="imgPost">
-    </div>
     <textarea id="postText" class="postText" cols="50" rows="4" placeholder="Escribe tu publicación"></textarea>
     <button class="submit" id="uploadImg">Publicar</button>
     </main>
@@ -27,6 +23,11 @@ export const postPage = () => {
   const logOut = divPost.querySelector('#logOut');
   logOut.addEventListener('click', () => {
     signOff();
+  });
+
+  const uploadPost = divPost.querySelector('#uploadImg');
+  uploadPost.addEventListener('click', () => {
+    console.log('Hola');
   });
 
   return divPost;

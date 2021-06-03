@@ -6,8 +6,8 @@ export const googleLogin = () => {
     .signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
-      const database = firebase.firestore();
       window.location.hash = '#/home';
+      const database = firebase.firestore();
       return database.collection('user').doc(user.uid).set({
         nombre: user.displayName,
         email: user.email,
@@ -26,8 +26,6 @@ export const singIn = () => {
     })
     .catch(() => {
       document.querySelector('.result').innerHTML = 'Intenta nuevamente';
-      const imgTryagain = document.querySelector('#tryAgain');
-      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
@@ -40,7 +38,7 @@ export const createAccount = () => {
     .then((userCredential) => {
       const user = userCredential.user;
       const database = firebase.firestore();
-      document.querySelector('.result').innerHTML = 'Tu cuenta fue creada, vuelve al inicio para ingresar';
+      document.querySelector('.result').innerHTML = 'Tu cuenta fue creada';
       return database.collection('user').doc(user.uid).set({
         name: username,
         email,
@@ -48,8 +46,6 @@ export const createAccount = () => {
     })
     .catch(() => {
       document.querySelector('.result').innerHTML = 'Intenta nuevamente';
-      const imgTryagain = document.querySelector('#tryAgain');
-      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
@@ -61,8 +57,6 @@ export const passRecover = () => {
     document.querySelector('.result').innerHTML = 'Enviamos a tu correo el enlace para cambiar tu contraseña';
   }).catch(() => {
     document.querySelector('.result').innerHTML = 'Intenta nuevamente';
-    const imgTryagain = document.querySelector('#tryAgain');
-    imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
   });
 };
 
@@ -71,9 +65,7 @@ export const signOff = () => {
     swal('Hasta pronto!!');
     window.location.hash = '#/';
   }).catch(() => {
-    document.querySelector('.result').innerHTML = 'Intenta nuevamente';
-    const imgTryagain = document.querySelector('#tryAgain');
-    imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
+    window.location.hash = '#/error';
   });
 };
 
@@ -81,6 +73,6 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     window.location.hash = '#/home';
   } else {
-    window.location.hash = '#/error';
+    window.location.hash = '#/';
   }
 });
