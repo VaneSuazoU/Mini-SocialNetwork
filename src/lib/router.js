@@ -4,7 +4,6 @@ import { recoverPage } from './views/templateRecover.js';
 import { registerPage } from './views/templateRegister.js';
 import { errorPage } from './views/templateError.js';
 import { homePage } from './views/templateHome.js';
-import { postPage } from './views/templatePost.js';
 
 export const changeRoute = (hash) => showTemplate(hash);
 
@@ -20,9 +19,6 @@ const showTemplate = (hash) => {
       break;
     case '#/home':
       containerRoot.appendChild(homePage());
-      break;
-    case '#/addPost':
-      containerRoot.appendChild(postPage());
       break;
     case '':
     case '#':

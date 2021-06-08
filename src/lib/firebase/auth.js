@@ -1,19 +1,21 @@
 /* eslint-disable no-undef */
+const db = firebase.firestore();
+
 export const googleLogin = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth()
-    .signInWithPopup(provider)
+  firebase.auth().signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
-      window.location.hash = '#/home';
-      const database = firebase.firestore();
-      return database.collection('user').doc(user.uid).set({
+      db.collection('users').add({
         nombre: user.displayName,
-        email: user.email,
+        correo: user.email,
       });
+      window.location.hash = '#/home';
     }).catch(() => {
       document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+      const imgTryagain = document.querySelector('#tryAgain');
+      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
@@ -26,26 +28,22 @@ export const singIn = () => {
     })
     .catch(() => {
       document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+      const imgTryagain = document.querySelector('#tryAgain');
+      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
 export const createAccount = () => {
-  const username = document.getElementById('userName').value;
   const email = document.getElementById('emailRegister').value;
   const password = document.getElementById('password').value;
-
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      const database = firebase.firestore();
+    .then(() => {
       document.querySelector('.result').innerHTML = 'Tu cuenta fue creada';
-      return database.collection('user').doc(user.uid).set({
-        name: username,
-        email,
-      });
     })
     .catch(() => {
       document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+      const imgTryagain = document.querySelector('#tryAgain');
+      imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
     });
 };
 
@@ -57,6 +55,8 @@ export const passRecover = () => {
     document.querySelector('.result').innerHTML = 'Enviamos a tu correo el enlace para cambiar tu contraseña';
   }).catch(() => {
     document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+    const imgTryagain = document.querySelector('#tryAgain');
+    imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
   });
 };
 

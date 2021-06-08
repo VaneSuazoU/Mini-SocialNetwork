@@ -12,7 +12,8 @@ export const recoverPage = () => {
     <h6>Ingresa tu correo electrónico y te enviaremos un enlace para que recuperes tu cuenta.</h6>
     <input type="email" id="emailrecover" placeholder="Correo electrónico">
     <button class="submit" id="sendLink">Enviar enlace</button>
-    <p class="result"></p>
+    <h4 class="result"></h4>
+    <div id="tryAgain"></div>
     <a href=/#>Volver al inicio</a>
     </main>
     <footer>
