@@ -31,6 +31,5 @@ export const homePage = () => {
     createPost();
     showPost();
   });
-
   return divHome;
 };

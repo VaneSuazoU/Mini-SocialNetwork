@@ -65,7 +65,9 @@ export const signOff = () => {
     swal('Hasta pronto!!');
     window.location.hash = '#/';
   }).catch(() => {
-    window.location.hash = '#/error';
+    document.querySelector('.result').innerHTML = 'Intenta nuevamente';
+    const imgTryagain = document.querySelector('#tryAgain');
+    imgTryagain.innerHTML = '<img src="./images/tryagaincat.gif">';
   });
 };
 
